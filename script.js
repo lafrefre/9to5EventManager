@@ -31,6 +31,27 @@ for (var hour = 9; hour <=17; hour++) {
     var eventText = events[hour] || '';
     var timeBlock = $('#hour-' + hour);
 
-    
+    // going to get rid of classes that are already ex 
+    timeBlock.removeClass('past present future');
+
+
+    // adding the prop 4 curr tm
+    if (hour < currentHour){
+        timeBlock.addClass('past');
+    }else if (hour === currentHour) {
+        timeBlock.addClass('present');
+    }else {
+        timeBlock.addClass('future');
+    }
+    // updated tecarea con for every hr
+    timeBlock.find('description').val(eventText);
+    }
+ }
+
+//  for saving event 
+function savedEvent(hour, event) {
+    events[hour] = event;
+    saveEventToLocalStorage();
+    renderEvents();
 }
-}
+
