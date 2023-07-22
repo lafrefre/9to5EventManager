@@ -21,3 +21,16 @@ function initApp() {
     // with the setI it willupdate the current day every min
 }
 
+// function that will be used to ren events
+function renderEvents() {
+    var currentHour = dayjs().hour();  
+
+    // for (initilazation; conditon; afterthought;)
+    //                    statement
+for (var hour = 9; hour <=17; hour++) {
+    var eventText = events[hour] || '';
+    var timeBlock = $('#hour-' + hour);
+
+    
+}
+}
