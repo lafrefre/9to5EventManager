@@ -55,3 +55,23 @@ function savedEvent(hour, event) {
     renderEvents();
 }
 
+// function to update cur date in header 
+function updateCurrentDay(){
+    var CurrentDay = dayjs().format('dddd, MMMM D, YYYY, h:mm A');
+    $('#currentDay').text('Current Time: ' +CurrentDay);
+
+}
+
+// the EL for the save btn 
+$(document).on('click', '.saveBtn',function() {
+    var hour = parse($(this).parent().attr(id).replace('hour-',  ''),10);
+    var event = $(this).siblings('.description').val();
+    saveEventToLocalStorage(hour, event);
+});
+
+// int app when dom is rdy
+$(document).ready(function () {
+    innitApp();
+});
+
+var events = {};
